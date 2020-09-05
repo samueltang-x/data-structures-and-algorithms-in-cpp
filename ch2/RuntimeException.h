@@ -1,12 +1,14 @@
-#ifndef RUNTIMEEXCEPTION.H
-#define RUNTIMEEXCEPTION.H
+#ifndef RUNTIMEEXCEPTION_H
+#define RUNTIMEEXCEPTION_H
+
+#include <string>
 
 class RuntimeException {
   public:
-    RuntimeException(const string& err) { errorMsg = err; }
-    string getMessage() const { return errorMsg; }
+    RuntimeException(const std::string& err) { errorMsg = err; }
+    std::string getMessage() const { return errorMsg; }
   private:
-    string errorMsg;
+    std::string errorMsg;
 };
 
 #endif
