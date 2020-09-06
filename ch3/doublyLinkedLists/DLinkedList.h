@@ -1,0 +1,97 @@
+#include "DNode.h"
+#include "../../ch2/RuntimeException.h"
+
+template <typename T>
+class DLinkedList {
+  public:
+    DLinkedList();
+    ~DLinkedList();
+
+    bool empty() const;
+    const T& front() const;
+    const T& back() const;
+    void addFront(const T& n);
+    void addBack(const T& n);
+    void removeFront();
+    void removeBack();
+
+  protected:
+    void add(DNode<T>* v, const T& n);
+    void remove(DNode<T>* v);
+
+  private:
+    DNode<T>* header;
+    DNode<T>* trailer;
+};
+
+template <typename T>
+DLinkedList<T>::DLinkedList() {
+  header = new DNode<T>;
+  trailer = new DNode<T>;
+  header->next = trailer;
+  trailer->prev = header;
+}
+
+template <typename T>
+DLinkedList<T>::~DLinkedList() {
+  while (!empty()) removeFront();
+  delete header;
+  delete trailer;
+}
+
+template <typename T>
+bool DLinkedList<T>::empty() const {
+  return header->next == trailer;
+}
+
+template <typename T>
+const T& DLinkedList<T>::front() const {
+  if (empty()) throw RuntimeException("get front of empty DLinkedList");
+  return header->next->elem;
+}
+
+template <typename T>
+const T& DLinkedList<T>::back() const {
+  if (empty()) throw RuntimeException("get back of empty DLinkedList");
+  return trailer->prev->elem;
+}
+
+template <typename T>
+void DLinkedList<T>::addFront(const T& e) {
+  add(header->next, e);
+}
+
+template <typename T>
+void DLinkedList<T>::addBack(const T& e) {
+  add(trailer, e);
+}
+
+template <typename T>
+void DLinkedList<T>::removeFront() {
+  if (empty()) throw RuntimeException("remove front of empty DLinkedList");
+  remove(header->next);
+}
+
+template <typename T>
+void DLinkedList<T>::removeBack() {
+  if (empty()) throw RuntimeException("remove back of empty DLinkedList");
+  remove(trailer->prev);
+}
+
+template <typename T>
+void DLinkedList<T>::add(DNode<T>* v, const T& e) {
+  DNode<T>* n = new DNode<T>;
+  n->elem = e;
+  n->prev = v->prev;
+  n->next = v;
+
+  v->prev->next = n;
+  v->prev = n;
+}
+
+template <typename T>
+void DLinkedList<T>::remove(DNode<T>* v) {
+  v->prev->next = v->next;
+  v->next->prev = v->prev;
+  delete v;
+}
