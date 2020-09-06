@@ -67,7 +67,7 @@ ostream& operator<<(ostream& os, CircleList& cl) {
     cl.advance();
   }
 
-  os << "]\n";
+  os << "]";
 
   return os;
 }

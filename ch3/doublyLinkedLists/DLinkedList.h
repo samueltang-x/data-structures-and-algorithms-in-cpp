@@ -1,5 +1,12 @@
+#include <string>
 #include "DNode.h"
 #include "../../ch2/RuntimeException.h"
+
+template <typename T>
+class DLinkedList;
+
+template <typename T>
+std::ostream& operator<<(std::ostream& os, DLinkedList<T>& dl);
 
 template <typename T>
 class DLinkedList {
@@ -22,6 +29,8 @@ class DLinkedList {
   private:
     DNode<T>* header;
     DNode<T>* trailer;
+
+    friend std::ostream& operator<< <T>(std::ostream& os, DLinkedList& dl);
 };
 
 template <typename T>
@@ -94,4 +103,41 @@ void DLinkedList<T>::remove(DNode<T>* v) {
   v->prev->next = v->next;
   v->next->prev = v->prev;
   delete v;
+}
+
+template <typename T>
+void listReverse(DLinkedList<T>& dl) {
+  DLinkedList<T> t;
+  while (!dl.empty()) {
+    t.addFront(dl.front());
+    dl.removeFront();
+  }
+
+  while (!t.empty()) {
+    dl.addBack(t.front());
+    t.removeFront();
+  }
+}
+
+template <typename T>
+std::ostream& operator<<(std::ostream& os, DLinkedList<T>& dl) {
+  os << "[";
+  DLinkedList<T> t;
+  while (!dl.empty()) {
+    T e = dl.front();
+    t.addBack(e);
+    os << e;
+
+    dl.removeFront();
+
+    if (!dl.empty()) os << ",";
+  }
+  os << "]";
+
+  while(!t.empty()) {
+    dl.addBack(t.front());
+    t.removeFront();
+  }
+
+  return os;
 }
