@@ -3,6 +3,10 @@
 
 #include "../../misc/extendExceptions.h"
 #include "SNode.h"
+#include <iostream>
+
+template <typename E>
+std::ostream& operator<<(std::ostream& os, const SLinkedList<E>& s);
 
 template <typename E>
 class SLinkedList {
@@ -17,6 +21,9 @@ class SLinkedList {
 
   private:
     SNode<E>* head;
+
+    friend std::ostream& operator<< <E>(std::ostream& os, const SLinkedList& s);
+
 };
 
 template <typename E>
@@ -53,6 +60,18 @@ void SLinkedList<E>::removeFront() {
   SNode<E>* old = head;
   head = head->next;
   delete old;
+}
+
+template <typename E>
+std::ostream& operator<<(std::ostream& os, const SLinkedList<E>& s) {
+  if (s.empty()) os << "Empty list\n";
+  else {
+    for (SNode<E>* n = s.head; n != NULL; n = n->next)
+      os << (n == s.head ? "" : "->") << n->elem;
+
+    os << std::endl;
+  }
+  return os;
 }
 
 

@@ -4,6 +4,9 @@
 template <typename> class DLinkedList;
 
 template <typename E>
+std::ostream& operator<<(std::ostream& os, const DLinkedList<E>& dl);
+
+template <typename E>
 class DNode {
   private:
     E elem;
@@ -11,6 +14,7 @@ class DNode {
     DNode<E>* next;
 
     friend class DLinkedList<E>;
+    friend std::ostream& operator<< <E>(std::ostream& os, const DLinkedList<E>& dl);
 };
 
 #endif

@@ -6,25 +6,14 @@
 
 using namespace std;
 
-template <typename E>
-void printDLinkedList(DLinkedList<E>& l) {
-  while (!l.empty())
-  {
-    cout << l.front() << " --> ";
-    l.removeFront();
-  }
-  cout << "NULL\n";
-}
-
-void testDLinkedList()
-{
+void testDLinkedList() {
   DLinkedList<string> a;
   a.addFront("BOS");
   a.addFront("ATL");
   a.addBack("LAX");
   a.addBack("MSP");
 
-  printDLinkedList(a);
+  cout << a;
 
   DLinkedList<int> b;
   b.addFront(24);
@@ -32,11 +21,10 @@ void testDLinkedList()
   b.addBack(39);
   b.addBack(78);
 
-  printDLinkedList(b);
+  cout << b;
 }
 
-int main()
-{
+int main() {
   testDLinkedList();
   return EXIT_SUCCESS;
 }

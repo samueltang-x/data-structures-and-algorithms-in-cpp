@@ -9,7 +9,7 @@ template <typename T>
 class DLinkedList;
 
 template <typename T>
-std::ostream& operator<<(std::ostream& os, DLinkedList<T>& dl);
+std::ostream& operator<<(std::ostream& os, const DLinkedList<T>& dl);
 
 template <typename T>
 class DLinkedList {
@@ -33,7 +33,7 @@ class DLinkedList {
     DNode<T>* header;
     DNode<T>* trailer;
 
-    friend std::ostream& operator<< <T>(std::ostream& os, DLinkedList& dl);
+    friend std::ostream& operator<< <T>(std::ostream& os, const DLinkedList& dl);
 };
 
 template <typename T>
@@ -123,25 +123,15 @@ void listReverse(DLinkedList<T>& dl) {
 }
 
 template <typename T>
-std::ostream& operator<<(std::ostream& os, DLinkedList<T>& dl) {
-  os << "[";
-  DLinkedList<T> t;
-  while (!dl.empty()) {
-    T e = dl.front();
-    t.addBack(e);
-    os << e;
+std::ostream& operator<<(std::ostream& os, const DLinkedList<T>& dl) {
+  os << "[head]--";
 
-    dl.removeFront();
-
-    if (!dl.empty()) os << ",";
-  }
-  os << "]";
-
-  while(!t.empty()) {
-    dl.addBack(t.front());
-    t.removeFront();
+  for (DNode<T>* t = dl.header->next; ;t = t->next) {
+    os << (t == dl.header->next ? "" : "--") << t->elem;
+    if (t->next == dl.trailer) break;
   }
 
+  os << "--[trailer]" << std::endl;
   return os;
 }
 
