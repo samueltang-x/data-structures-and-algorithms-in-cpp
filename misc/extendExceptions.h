@@ -28,7 +28,8 @@ public:
 };
 
 class IndexOutOfBounds: public RuntimeException {
-  IndexOutOfBounds(const std::string& msg): RuntimeException(msg) {}
+  public:
+    IndexOutOfBounds(const std::string& msg): RuntimeException(msg) {}
 };
 
 #endif

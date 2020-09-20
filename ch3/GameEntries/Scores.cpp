@@ -1,33 +1,38 @@
 #include "../../misc/extendExceptions.h"
-#include "Score.h"
+#include "Scores.h"
 
-Score::Score(int maxEnt)
+using namespace std;
+
+Scores::Scores(int maxEnt)
   : maxEntries(maxEnt), numEntries(0) {
   entries = new GameEntry[maxEntries];
 }
 
-~Score::Score() {
+Scores::~Scores() {
   delete [] entries;
 }
 
-void Score::add(const GameEntry& e) {
-  int newScore = e.getScore();
+void Scores::add(const GameEntry& e) {
+  int newScores = e.getScore();
   // when the array is full
   if (numEntries == maxEntries) {
-    if (newScore < entries[numEntries - 1].getScore())
+    if (newScores < entries[numEntries - 1].getScore())
       return;
 
     numEntries--;
   }
 
-  for (int i = numEntries - 1; i >= 0 && newScore > entries[i].getScore(); i--)
+  int i = numEntries - 1;
+  while (i >= 0 && newScores > entries[i].getScore()) {
     entries[i + 1] = entries[i];
+    i--;
+  }
 
   entries[i+1] = e;
   numEntries++;
 }
 
-GameEntry Score::remove(int i) throw(IndexOutOfBounds) {
+GameEntry Scores::remove(int i) {
   if (i < 0 || i >= numEntries)
     throw IndexOutOfBounds("Invalid index");
 
@@ -37,4 +42,15 @@ GameEntry Score::remove(int i) throw(IndexOutOfBounds) {
 
   numEntries--;
   return e;
+}
+
+ostream& operator<<(ostream& os, const Scores& s) {
+  if (s.numEntries == 0) os << "No scores\n";
+  else {
+    for (int i = 0; i < s.numEntries; i++) {
+      os << i+1 << ": " << s.entries[i].getName() << '(' << s.entries[i].getScore() << ')';
+      os << ( (i == s.numEntries-1) ? "\n" : ", " );
+    }
+  }
+  return os;
 }
