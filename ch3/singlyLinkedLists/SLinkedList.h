@@ -1,7 +1,7 @@
 #ifndef SLINKEDLIST_H
 #define SLINKEDLIST_H
 
-#include "../../ch2/RuntimeException.h"
+#include "../../misc/extendExceptions.h"
 #include "SNode.h"
 
 template <typename E>
@@ -35,7 +35,7 @@ bool SLinkedList<E>::empty() const {
 
 template <typename E>
 const E& SLinkedList<E>::front() const {
-  if (empty()) throw RuntimeException("get front of empty SLinkedList");
+  if (empty()) throw ListEmpty("Get front of empty SLinkedList");
   return head->elem;
 }
 
@@ -49,7 +49,7 @@ void SLinkedList<E>::addFront(const E& e) {
 
 template <typename E>
 void SLinkedList<E>::removeFront() {
-  if (empty()) throw RuntimeException("remove front of empty SLinkedList");
+  if (empty()) throw ListEmpty("Remove front of empty SLinkedList");
   SNode<E>* old = head;
   head = head->next;
   delete old;

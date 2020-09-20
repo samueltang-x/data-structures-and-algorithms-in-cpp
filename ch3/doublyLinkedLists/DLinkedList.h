@@ -1,6 +1,6 @@
 #include <string>
 #include "DNode.h"
-#include "../../ch2/RuntimeException.h"
+#include "../../misc/extendExceptions.h"
 
 template <typename T>
 class DLinkedList;
@@ -55,13 +55,13 @@ bool DLinkedList<T>::empty() const {
 
 template <typename T>
 const T& DLinkedList<T>::front() const {
-  if (empty()) throw RuntimeException("get front of empty DLinkedList");
+  if (empty()) throw ListEmpty("Get front of empty DLinkedList");
   return header->next->elem;
 }
 
 template <typename T>
 const T& DLinkedList<T>::back() const {
-  if (empty()) throw RuntimeException("get back of empty DLinkedList");
+  if (empty()) throw ListEmpty("Get back of empty DLinkedList");
   return trailer->prev->elem;
 }
 
@@ -77,13 +77,13 @@ void DLinkedList<T>::addBack(const T& e) {
 
 template <typename T>
 void DLinkedList<T>::removeFront() {
-  if (empty()) throw RuntimeException("remove front of empty DLinkedList");
+  if (empty()) throw ListEmpty("Remove front of empty DLinkedList");
   remove(header->next);
 }
 
 template <typename T>
 void DLinkedList<T>::removeBack() {
-  if (empty()) throw RuntimeException("remove back of empty DLinkedList");
+  if (empty()) throw ListEmpty("Remove back of empty DLinkedList");
   remove(trailer->prev);
 }
 

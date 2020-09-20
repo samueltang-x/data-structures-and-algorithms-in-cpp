@@ -1,4 +1,7 @@
-#include "exceptions.h"
+#ifndef ARRAY_STACK_H
+#define ARRAY_STACK_H
+
+#include "../../misc/extendExceptions.h"
 
 template <typename E>
 class ArrayStack {
@@ -74,3 +77,5 @@ void ArrayStack<E>::pop() {
   if (empty()) throw StackEmpty("Pop from empty stack");
   --t;
 }
+
+#endif

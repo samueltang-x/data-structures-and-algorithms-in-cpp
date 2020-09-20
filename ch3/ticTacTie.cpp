@@ -1,7 +1,7 @@
 #include <cstdlib>
 #include <iostream>
 
-#include "../ch2/RuntimeException.h"
+#include "../misc/extendExceptions.h"
 
 using namespace std;
 

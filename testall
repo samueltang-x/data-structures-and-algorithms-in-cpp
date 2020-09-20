@@ -1,0 +1,14 @@
+#!/bin/bash
+
+function test_all() {
+  for f in $(find . -name '*.sh')
+  do
+    local file_dir=$(dirname $f)
+    local file_name=$(basename $f)
+    cd $file_dir
+    bash -x $file_name
+    cd -
+  done
+}
+
+test_all

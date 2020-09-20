@@ -1,5 +1,5 @@
 #include "CircleList.h"
-#include "../../ch2/RuntimeException.h"
+#include "../../misc/extendExceptions.h"
 
 using namespace std;
 
@@ -15,17 +15,17 @@ bool CircleList::empty() const {
 }
 
 void CircleList::advance() {
-  if (empty()) throw RuntimeException("advance a empty CircleList");
+  if (empty()) throw ListEmpty("advance a empty CircleList");
   cursor = cursor->next;
 }
 
 const Elem& CircleList::front() const {
-  if (empty()) throw RuntimeException("get front of a empty CircleList");
+  if (empty()) throw ListEmpty("get front of a empty CircleList");
   return cursor->next->elem;
 }
 
 const Elem& CircleList::back() const {
-  if (empty()) throw RuntimeException("get back of a empty CircleList");
+  if (empty()) throw ListEmpty("get back of a empty CircleList");
   return cursor->elem;
 }
 
@@ -43,7 +43,7 @@ void CircleList::add(const Elem& e) {
 }
 
 void CircleList::remove() {
-  if (empty()) throw RuntimeException("remove a empty CircleList");
+  if (empty()) throw ListEmpty("remove a empty CircleList");
 
   CNode* old = cursor->next;
   if (cursor->next == cursor) {

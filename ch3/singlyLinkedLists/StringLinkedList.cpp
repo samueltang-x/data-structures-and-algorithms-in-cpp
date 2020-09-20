@@ -1,5 +1,5 @@
 #include "StringLinkedList.h"
-#include "../../ch2/RuntimeException.h"
+#include "../../misc/extendExceptions.h"
 
 using namespace std;
 
@@ -8,9 +8,7 @@ StringLinkedList::StringLinkedList() {
 }
 
 StringLinkedList::~StringLinkedList() {
-  while (!empty()) {
-    removeFront();
-  }
+  while (!empty()) removeFront();
 }
 
 bool StringLinkedList::empty() {
@@ -18,7 +16,7 @@ bool StringLinkedList::empty() {
 }
 
 const string& StringLinkedList::front() const {
-  if (empty()) throw RuntimeException("get front of empty StringLinkedList");
+  if (empty()) throw ListEmpty("Get front of empty StringLinkedList");
   return head->elem;
 }
 
@@ -30,7 +28,7 @@ void StringLinkedList::addFront(const string& e) {
 }
 
 void StringLinkedList::removeFront() {
-  if (empty()) throw RuntimeException("remove front of empty StringLinkedList");
+  if (empty()) throw ListEmpty("Remove front of empty StringLinkedList");
   StringNode* old = head;
   head = old->next;
   delete old;
