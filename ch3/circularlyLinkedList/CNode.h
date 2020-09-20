@@ -1,3 +1,6 @@
+#ifndef CNODE_H
+#define CNODE_H
+
 #include <string>
 
 typedef std::string Elem;
@@ -9,3 +12,5 @@ class CNode {
 
   friend class CircleList;
 };
+
+#endif

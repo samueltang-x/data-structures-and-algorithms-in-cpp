@@ -1,3 +1,6 @@
+#ifndef CIRCLELIST_H
+#define CIRCLELIST_H
+
 #include <iostream>
 #include "CNode.h"
 
@@ -17,3 +20,5 @@ class CircleList {
 
     friend std::ostream& operator<<(std::ostream& os, CircleList& cl);
 };
+
+#endif

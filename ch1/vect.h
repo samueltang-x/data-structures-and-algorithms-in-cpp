@@ -1,3 +1,6 @@
+#ifndef VECT_H
+#define VECT_H
+
 class Vect {
   public:
     Vect(int n);
@@ -10,3 +13,5 @@ class Vect {
     int size;
     int* data;
 };
+
+#endif

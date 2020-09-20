@@ -1,3 +1,6 @@
+#ifndef DLINKEDLIST_H
+#define DLINKEDLIST_H
+
 #include <string>
 #include "DNode.h"
 #include "../../misc/extendExceptions.h"
@@ -141,3 +144,5 @@ std::ostream& operator<<(std::ostream& os, DLinkedList<T>& dl) {
 
   return os;
 }
+
+#endif
