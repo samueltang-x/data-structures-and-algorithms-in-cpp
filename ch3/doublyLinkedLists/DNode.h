@@ -10,8 +10,8 @@ template <typename E>
 class DNode {
   private:
     E elem;
-    DNode<E>* prev;
-    DNode<E>* next;
+    DNode* prev;
+    DNode* next;
 
     friend class DLinkedList<E>;
     friend std::ostream& operator<< <E>(std::ostream& os, const DLinkedList<E>& dl);

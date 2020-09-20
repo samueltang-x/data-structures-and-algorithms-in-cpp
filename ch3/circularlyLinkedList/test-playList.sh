@@ -1,5 +1,5 @@
 #!/bin/bash
 
-g++ playList.cpp CircleList.cpp -o playList
+g++ playList.cpp -o playList
 ./playList
 rm playList

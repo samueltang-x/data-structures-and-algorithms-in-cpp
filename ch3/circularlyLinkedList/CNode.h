@@ -1,16 +1,23 @@
 #ifndef CNODE_H
 #define CNODE_H
 
+#include <iostream>
 #include <string>
 
-typedef std::string Elem;
+template <typename>
+class CircleList;
 
+template <typename E>
+std::ostream& operator<<(std::ostream& os, const CircleList<E>& cl);
+
+template <typename E>
 class CNode {
   private:
-    Elem elem;
+    E elem;
     CNode* next;
 
-  friend class CircleList;
+    friend class CircleList<E>;
+    friend std::ostream& operator<< <E>(std::ostream& os, const CircleList<E>& cl);
 };
 
 #endif

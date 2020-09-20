@@ -10,8 +10,9 @@ std::ostream& operator<<(std::ostream& os, const SLinkedList<E>& l);
 
 template <typename E>
 class SNode {
+  private:
     E elem;
-    SNode<E>* next;
+    SNode* next;
 
     friend class SLinkedList<E>;
     // template <typename> friend class SLinkedList;
