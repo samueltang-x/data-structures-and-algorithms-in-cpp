@@ -1,3 +1,6 @@
+#ifndef GUARD_ARRAYQUEUE_H
+#define GUARD_ARRAYQUEUE_H
+
 #include "QueueExceptions.h"
 #include <iostream>
 
@@ -105,3 +108,5 @@ std::ostream& operator<<(std::ostream& os, const ArrayQueue<E>& q) {
   }
   return os;
 }
+
+#endif

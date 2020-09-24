@@ -1,3 +1,6 @@
+#ifndef GUARD_LINKEDSTACK.H
+#define GUARD_LINKEDSTACK.H
+
 #include "../../ch3/singlyLinkedLists/SLinkedList.h"
 #include <iostream>
 
@@ -60,3 +63,5 @@ std::ostream& operator<<(std::ostream& os, const LinkedStack<E>& s) {
   os << s.l;
   return os;
 }
+
+#endif
