@@ -16,9 +16,19 @@ void testArrayQueue() {
   q.enqueue("algorithems");
   cout << q;
   cout << "top: " << q.top() << ", size: " << q.size() << ", is empty: " << (q.empty() ? "true" : "false") << endl;
+
+  cout << "copy contructor, q2:\n";
+  ArrayQueue<string> q2 = q;
+  cout << q2;
+
   q.dequeue();
   cout << q;
-  cout << "top: " << q.top() << ", size: " << q.size() << ", is empty: " << (q.empty() ? "true" : "false") << endl;
+  cout << "atter dequeue q, top: " << q.top() << ", size: " << q.size() << ", is empty: " << (q.empty() ? "true" : "false") << endl;
+
+  cout << "Assign q2 to q3:\n";
+  ArrayQueue<string> q3;
+  q3 = q2;
+  cout << q3;
 }
 
 
