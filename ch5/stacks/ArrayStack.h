@@ -10,7 +10,7 @@ class ArrayStack {
     ArrayStack(int cap = DEF_CAPACITY);
     ~ArrayStack();
     ArrayStack(const ArrayStack& as);
-    const ArrayStack& operator=(const ArrayStack& as);
+    ArrayStack& operator=(const ArrayStack& as);
 
     bool empty() const;
     int size() const;
@@ -41,7 +41,7 @@ ArrayStack<E>::ArrayStack(const ArrayStack& as) {
 }
 
 template <typename E>
-const ArrayStack<E>& ArrayStack<E>::operator=(const ArrayStack& as) {
+ArrayStack<E>& ArrayStack<E>::operator=(const ArrayStack& as) {
   if (this == &as) return *this;  // self-assignment
 
   capacity = as.capacity;

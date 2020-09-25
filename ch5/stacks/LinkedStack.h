@@ -1,5 +1,5 @@
-#ifndef GUARD_LINKEDSTACK.H
-#define GUARD_LINKEDSTACK.H
+#ifndef GUARD_LINKEDSTACK_H
+#define GUARD_LINKEDSTACK_H
 
 #include "../../ch3/singlyLinkedLists/SLinkedList.h"
 #include <iostream>

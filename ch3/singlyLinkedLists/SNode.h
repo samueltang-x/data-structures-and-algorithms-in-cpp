@@ -15,8 +15,6 @@ class SNode {
     SNode* next;
 
     friend class SLinkedList<E>;
-    // template <typename> friend class SLinkedList;
-    //
     friend std::ostream& operator<< <E>(std::ostream& os, const SLinkedList<E>& l);
 };
 

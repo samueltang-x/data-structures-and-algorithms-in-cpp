@@ -1,5 +1,5 @@
-#ifndef GUARD_QUEUEEXCEPTIONS.H
-#define GUARD_QUEUEEXCEPTIONS.H
+#ifndef GUARD_QUEUEEXCEPTIONS_H
+#define GUARD_QUEUEEXCEPTIONS_H
 
 #include "../../misc/extendExceptions.h"
 #include <string>
