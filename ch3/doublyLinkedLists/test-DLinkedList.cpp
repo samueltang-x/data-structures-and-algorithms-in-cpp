@@ -14,14 +14,21 @@ void testDLinkedList() {
   a.addBack("MSP");
 
   cout << a;
+  
+  cout << "removeBack " << a.back();
+  a.removeBack(); cout << ": " << a;
+  
+  cout << "removeFront " << a.front();
+  a.removeFront(); cout << ": " << a;
 
   DLinkedList<int> b;
+  cout << "before addFront(), b: " << b;
   b.addFront(24);
   b.addFront(13);
   b.addBack(39);
   b.addBack(78);
 
-  cout << b;
+  cout << "after addFront(), b: " << b;
 }
 
 int main() {

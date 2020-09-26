@@ -1,6 +1,7 @@
 #ifndef DLINKEDLIST_H
 #define DLINKEDLIST_H
 
+#include <iostream>
 #include <string>
 #include "DNode.h"
 #include "../../misc/extendExceptions.h"
@@ -15,7 +16,10 @@ template <typename T>
 class DLinkedList {
   public:
     DLinkedList();
+    DLinkedList(const DLinkedList& l);
     ~DLinkedList();
+
+    DLinkedList& operator=(const DLinkedList& l);
 
     bool empty() const;
     const T& front() const;
@@ -36,6 +40,7 @@ class DLinkedList {
     friend std::ostream& operator<< <T>(std::ostream& os, const DLinkedList& dl);
 };
 
+// default constructor
 template <typename T>
 DLinkedList<T>::DLinkedList() {
   header = new DNode<T>;
@@ -44,11 +49,44 @@ DLinkedList<T>::DLinkedList() {
   trailer->prev = header;
 }
 
+// copy constructor
+template <typename T>
+DLinkedList<T>::DLinkedList(const DLinkedList& l) {
+  header = new DNode<T>;
+  trailer = new DNode<T>;
+  header->next = trailer;
+  trailer->prev = header;
+ 
+  DNode<T>* src = l.header->next;
+  while (src != l.trailer) {
+    addBack(src->elem);
+    src = src->next;
+  }
+}
+
+
+// destructor
 template <typename T>
 DLinkedList<T>::~DLinkedList() {
   while (!empty()) removeFront();
   delete header;
   delete trailer;
+}
+
+// assignment operator
+template <typename T>
+DLinkedList<T>& DLinkedList<T>::operator=(const DLinkedList& l) {
+  if (this == &l) return *this; // self assignment
+
+  while (!empty()) removeFront();
+
+  DNode<T>* src = l.header->next;
+  while (src != l.trailer) {
+    addBack(src->elem);
+    src = src->next;
+  }
+
+  return *this;
 }
 
 template <typename T>
@@ -126,9 +164,8 @@ template <typename T>
 std::ostream& operator<<(std::ostream& os, const DLinkedList<T>& dl) {
   os << "[head]--";
 
-  for (DNode<T>* t = dl.header->next; ;t = t->next) {
-    os << (t == dl.header->next ? "" : "--") << t->elem;
-    if (t->next == dl.trailer) break;
+  for (DNode<T>* t = dl.header->next; t != dl.trailer; t = t->next) {
+    os << "--" << t->elem;
   }
 
   os << "--[trailer]" << std::endl;

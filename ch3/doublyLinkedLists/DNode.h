@@ -1,6 +1,8 @@
 #ifndef DNODE_H
 #define DNODE_H
 
+#include <iostream>
+
 template <typename> class DLinkedList;
 
 template <typename E>
