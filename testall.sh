@@ -8,12 +8,12 @@ function test_all() {
 
   cd $work_dir
 
-  for f in $(find . -name '*.sh')
+  for f in $(find . -name 'test-*.sh')
   do
     local file_dir=$(dirname $f)
     local file_name=$(basename $f)
     cd $file_dir
-    bash -x $file_name
+    bash $file_name
     cd -
   done
   cd $prev_dir
