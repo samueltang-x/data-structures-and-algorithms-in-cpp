@@ -2,6 +2,7 @@
 #define EXTENDEXCEPTIONS_H
 
 #include <string>
+#include <iostream>
 
 class RuntimeException {
 public:
@@ -10,6 +11,7 @@ public:
 
 private:
   std::string errorMsg;
+  friend std::ostream& operator<<(std::ostream& os, const RuntimeException& e);
 };
 
 class ListEmpty: public RuntimeException {
@@ -31,5 +33,10 @@ class IndexOutOfBounds: public RuntimeException {
   public:
     IndexOutOfBounds(const std::string& msg): RuntimeException(msg) {}
 };
+
+std::ostream& operator<<(std::ostream& os, const RuntimeException& e) {
+  os << e.errorMsg;
+  return os;
+}
 
 #endif

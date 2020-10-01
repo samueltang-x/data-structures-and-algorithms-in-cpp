@@ -13,6 +13,9 @@ class CircleList {
   public:
     CircleList();
     ~CircleList();
+
+    CircleList(const CircleList& l);
+    CircleList& operator=(const CircleList& l);
     
     bool empty() const;
     const E& front() const;
@@ -33,6 +36,29 @@ CircleList<E>::CircleList()
 template <typename E>
 CircleList<E>::~CircleList() {
   while (!empty()) remove();
+}
+
+template <typename E>
+CircleList<E>::CircleList(const CircleList& l) {
+  cursor = NULL;
+  if (l.empty()) return;
+
+  for (CNode<E>* n = l.cursor->next; ; n = n->next) {
+    add(n->elem);
+    if (n == l.cursor) return;
+  }
+}
+
+template <typename E>
+CircleList<E>& CircleList<E>::operator=(const CircleList& l) {
+  cursor = NULL;
+  if (!l.empty()) {
+    for (CNode<E>* n = l.cursor->next; ; n = n->next) {
+      add(n->elem);
+      if (n == l.cursor) break;
+    }
+  }
+  return *this;
 }
 
 template <typename E>

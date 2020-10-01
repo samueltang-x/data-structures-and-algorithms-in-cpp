@@ -1,4 +1,9 @@
 # Changelog
+## [1.1.0] - 2020-10-01
+### implement a queue with a circularly linked list
+- add LinkedQueue based on circularly linked list
+- add copy constructor and assignment operator for CircleList
+
 ## [1.0.1] - 2020-09-26
 ### Change all test scripts name to pattern test-*.sh
 
