@@ -1,4 +1,7 @@
 # Changelog
+## [1.2.0] - 2020-10-04
+### ch6. Add ArrayVector: a vector based on an extendable array
+
 ## [1.1.0] - 2020-10-01
 ### implement a queue with a circularly linked list
 - add LinkedQueue based on circularly linked list
