@@ -31,7 +31,7 @@ void testArrayVector() {
   cout << v << endl;
   cout << v.at(2) << endl;
   
-  cout << "copy consturct v2 from v: ";
+  cout << "copy construct v2 from v: ";
   ArrayVector<int> v2 = v;
   cout << v2 << endl;
 

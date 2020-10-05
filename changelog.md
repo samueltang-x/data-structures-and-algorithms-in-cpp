@@ -1,4 +1,7 @@
 # Changelog
+## [1.3.0] - 2020-10-05
+### ch6. Add NodeList: Doubly linked list implementation
+
 ## [1.2.0] - 2020-10-04
 ### ch6. Add ArrayVector: a vector based on an extendable array
 
