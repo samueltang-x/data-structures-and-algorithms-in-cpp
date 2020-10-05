@@ -1,4 +1,7 @@
 # Changelog
+## [1.4.0] - 2020-10-05
+### ch6. Add an example of the use of the STL vector and iterators
+
 ## [1.3.0] - 2020-10-05
 ### ch6. Add NodeList: Doubly linked list implementation
 

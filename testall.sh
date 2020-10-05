@@ -13,8 +13,9 @@ function test_all() {
     local file_dir=$(dirname $f)
     local file_name=$(basename $f)
     cd $file_dir
+    pwd
     bash $file_name
-    cd -
+    cd - > /dev/null
   done
   cd $prev_dir
 }
