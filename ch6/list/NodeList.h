@@ -10,6 +10,12 @@ template <typename E>
 std::ostream &operator<<(std::ostream &os, const NodeList<E> &l);
 
 template <typename E>
+typename NodeList<E>::Iterator operator+(typename NodeList<E>::Iterator p, int i);
+
+template <typename E>
+typename NodeList<E>::Iterator operator-(typename NodeList<E>::Iterator p, int i);
+
+template <typename E>
 class NodeList {
 private:
   struct Node {
@@ -32,6 +38,8 @@ public:
     Node *v;
     Iterator(Node *u);
     friend class NodeList;
+    friend Iterator operator+<E>(Iterator p, int i);
+    friend Iterator operator-<E>(Iterator p, int i);
   };
 
 public:
@@ -193,6 +201,18 @@ std::ostream &operator<<(std::ostream &os, const NodeList<E> &l) {
     std::cout << (i == l.begin() ? "" : ", ") << *i;
   std::cout << ')';
   return os;
+}
+
+template <typename E>
+typename NodeList<E>::Iterator operator+(typename NodeList<E>::Iterator p, int i) {
+  for (int j = 0; j < i; ++j) ++p;
+  return p;
+}
+
+template <typename E>
+typename NodeList<E>::Iterator operator-(typename NodeList<E>::Iterator p, int i) {
+  for (int j = 0; j < i; ++j) --p;
+  return p;
 }
 
 #endif

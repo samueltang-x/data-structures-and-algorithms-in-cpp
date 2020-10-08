@@ -1,4 +1,9 @@
 # Changelog
+## [1.5.0] - 2020-10-07
+### ch6. Add NodeSequence
+- Implementing a sequence with a doubly linked list (inherit NodeList) 
+- Add overloading operator+/- for NodeList<E>::Iterator
+
 ## [1.4.0] - 2020-10-05
 ### ch6. Add an example of the use of the STL vector and iterators
 
