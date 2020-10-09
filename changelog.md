@@ -1,4 +1,10 @@
 # Changelog
+
+## [1.6.0] - 2020-10-09
+### ch6 exercises
+- Add randomArray: R-6.2 Give a C++ code fragment for randomly permuting an array
+- Add reverseArray: R-6.1 Give a C++ code fragment for reversing an array
+
 ## [1.5.0] - 2020-10-07
 ### ch6. Add NodeSequence
 - Implementing a sequence with a doubly linked list (inherit NodeList) 
