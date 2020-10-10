@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.7.0] - 2020-10-10
+### Add rotateArray: R-6.3 Give a C++ code fragment for circularly rotating an array by distance d
+
 ## [1.6.0] - 2020-10-09
 ### ch6 exercises
 - Add randomArray: R-6.2 Give a C++ code fragment for randomly permuting an array
