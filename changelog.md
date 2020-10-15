@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.8.0] - 2020-10-11
+### ch6 exercises
+- Add VectorStack: R-6.5 Give an adapter class to support the Stack interface using the functions of the vector ADT
+- Change NodeList: R-6.12 Provide the missing housekeeping functions (copy constructor, assignment operator, and destructor) for the class NodeList
+
 ## [1.7.0] - 2020-10-10
 ### Add rotateArray: R-6.3 Give a C++ code fragment for circularly rotating an array by distance d
 

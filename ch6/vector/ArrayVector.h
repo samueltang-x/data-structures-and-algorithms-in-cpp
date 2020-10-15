@@ -14,10 +14,10 @@ std::ostream& operator<<(std::ostream& os, const ArrayVector<E>& v);
 template <typename E>
 class ArrayVector {
   public:
-    ArrayVector( int c = 0 );
-    ~ArrayVector();
-    ArrayVector(const ArrayVector& v);
-    ArrayVector& operator=(const ArrayVector& v);
+    ArrayVector(int c = 0); // default constructor
+    ~ArrayVector(); // destructer
+    ArrayVector(const ArrayVector& v);  // copy constructor
+    ArrayVector& operator=(const ArrayVector& v); // assignment operator
 
     int size() const;
     bool empty() const;
@@ -34,11 +34,13 @@ class ArrayVector {
     friend std::ostream& operator<< <E>(std::ostream& os, const ArrayVector& v);
 };
 
+// default constructor
 template <typename E>
 ArrayVector<E>::ArrayVector(int c): capacity(c), n(0), a(NULL) {
   reserve(c);
 }
 
+// destructor
 template <typename E>
 ArrayVector<E>::~ArrayVector() {
   if (a != NULL) delete [] a;

@@ -16,7 +16,7 @@ typename NodeList<E>::Iterator NodeSequence<E>::atIndex(int i) const {
   int n = NodeList<E>::size();
   if (i < 0 || i >= n)
     throw IndexOutOfBounds("illegal index in function atIndex of NodeSequence");
-  if (i > n / 2) {
+  if (i > n / 2) {  // walks from end
     /*
      * FIXME: issue when using iterator arithmetic
     typename NodeList<E>::Iterator e = NodeList<E>::end();
@@ -28,7 +28,7 @@ typename NodeList<E>::Iterator NodeSequence<E>::atIndex(int i) const {
       --p;
     return p;
     // workaround end
-  } else {
+  } else {  // walks from header
     /*
      * FIXME: inssue when using iterator arithmetic
     return NodeList<E>::begin() + i;

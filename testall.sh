@@ -13,6 +13,7 @@ function test_all() {
     local file_dir=$(dirname $f)
     local file_name=$(basename $f)
     cd $file_dir
+    echo
     pwd
     bash $file_name
     cd - > /dev/null

@@ -30,10 +30,10 @@ public:
     E &operator*();
     bool operator==(const Iterator &p) const;
     bool operator!=(const Iterator &p) const;
-    Iterator &operator++();
-    Iterator &operator--();
-    Iterator operator++(int); // postfix
-    Iterator operator--(int); // postfix
+    Iterator& operator++(); // preincrement
+    Iterator& operator--(); // predecrement
+    Iterator operator++(int); // postincrement
+    Iterator operator--(int); // postdecrement
   private:
     Node *v;
     Iterator(Node *u);
@@ -43,8 +43,10 @@ public:
   };
 
 public:
-  NodeList();
-  ~NodeList();
+  NodeList(); // default constructor
+  ~NodeList();  // destructor
+  NodeList(const NodeList& l); // copy constructor
+  NodeList& operator=(const NodeList& l);  // assignment operator
 
   int size() const;
   bool empty() const;
@@ -123,6 +125,23 @@ NodeList<E>::~NodeList() {
     eraseFront();
   delete header;
   delete trailer;
+}
+
+template <typename E>
+NodeList<E>::NodeList(const NodeList& l) {
+  n = 0;
+  header = new Node;
+  trailer = new Node;
+  header->next = trailer;
+  trailer->prev = header;
+  for (Iterator i = l.begin(); i != l.end(); ++i) insertBack(*i);
+}
+
+template <typename E>
+NodeList<E>& NodeList<E>::operator=(const NodeList& l) {
+  while (!empty()) eraseBack();
+  for (Iterator i = l.begin(); i != l.end(); ++i) insertBack(*i);
+  return *this;
 }
 
 template <typename E>

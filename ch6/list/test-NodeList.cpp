@@ -31,6 +31,10 @@ void testNodeList() {
   cout << "after l.insertFront(9): " << l << endl;
   cout << "is p == l.begin(): " << (p==l.begin() ? "true" : "false") << endl;
 
+  NodeList<int> m = l;
+  NodeList<int> n;
+  n = l;
+
   l.eraseBack();
   cout << "after l.eraseBack(): " << l << endl;
 
@@ -40,6 +44,8 @@ void testNodeList() {
   l.eraseFront();
   cout << "after l.eraseFront(): " << l << endl;
 
+  cout << "copied   m: " << m << endl;
+  cout << "assigned n: " << n << endl;
 }
 
 int main() {
