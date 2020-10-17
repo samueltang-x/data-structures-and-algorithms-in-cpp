@@ -20,23 +20,26 @@ class ArrayVector {
     ArrayVector& operator=(const ArrayVector& v); // assignment operator
 
     int size() const;
+    int capacity() const;
     bool empty() const;
     E& operator[](int i);
     E& at(int i);
     void insert(int i, const E& e);
     void erase(int i);
     void reserve(int c);
-  private:
-    int capacity;
-    int n;
+  protected:
     E* a;
+    int cap;
+
+  private:
+    int n;
 
     friend std::ostream& operator<< <E>(std::ostream& os, const ArrayVector& v);
 };
 
 // default constructor
 template <typename E>
-ArrayVector<E>::ArrayVector(int c): capacity(c), n(0), a(NULL) {
+ArrayVector<E>::ArrayVector(int c): cap(0), n(0), a(NULL) {
   reserve(c);
 }
 
@@ -49,10 +52,10 @@ ArrayVector<E>::~ArrayVector() {
 // copy constructor
 template <typename E>
 ArrayVector<E>::ArrayVector(const ArrayVector& v) {
-  capacity = v.capacity;
+  cap = v.cap;
   n = v.n;
   a = NULL;
-  if (v.a != NULL) a = new E[capacity];
+  if (v.a != NULL) a = new E[cap];
   for (int i = 0; i < n; i++) {
     a[i] = v.a[i]; 
   }
@@ -68,10 +71,10 @@ ArrayVector<E>& ArrayVector<E>::operator=(const ArrayVector& v) {
     a = NULL;
   }
 
-  capacity = v.capacity;
+  cap = v.cap;
   n = v.n;
   if (v.a != NULL) {
-    a = new E[capacity];
+    a = new E[cap];
     for (int i = 0; i < n; i++) {
       a[i] = v.a[i];
     } 
@@ -83,6 +86,11 @@ ArrayVector<E>& ArrayVector<E>::operator=(const ArrayVector& v) {
 template <typename E>
 int ArrayVector<E>::size() const {
   return n;
+}
+
+template <typename E>
+int ArrayVector<E>::capacity() const {
+  return cap;
 }
 
 template <typename E>
@@ -103,7 +111,7 @@ E& ArrayVector<E>::at(int i) {
 
 template <typename E>
 void ArrayVector<E>::insert(int i, const E& e) {
-  if (n >= capacity) reserve(std::max(1, capacity * 2));
+  if (n >= cap) reserve(std::max(1, cap * 2));
 
   for (int j = n-1; j >= i; j--) a[j+1] = a[j];
 
@@ -119,14 +127,14 @@ void ArrayVector<E>::erase(int i) {
 
 template <typename E>
 void ArrayVector<E>::reserve(int c) {
-  if (c <= capacity) return;
+  if (c <= cap) return;
   E* temp = new E[c];
   for (int i = 0; i < n; i++) {
     temp[i] = a[i]; 
   }
   if (a != NULL) delete [] a;
   a = temp;
-  capacity = c;
+  cap = c;
 }
 
 template <typename E>
