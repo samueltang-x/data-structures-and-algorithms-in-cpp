@@ -1,0 +1,3 @@
+test-ArrayStack: test-ArrayStack.cpp
+
+test-LinkedStack: test-LinkedStack.cpp

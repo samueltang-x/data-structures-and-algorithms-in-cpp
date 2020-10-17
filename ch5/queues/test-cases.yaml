@@ -1,0 +1,5 @@
+test-ArrayQueue: test-ArrayQueue.cpp
+
+test-LinkedDeque: test-LinkedDeque.cpp
+
+test-LinkedQueue: test-LinkedQueue.cpp

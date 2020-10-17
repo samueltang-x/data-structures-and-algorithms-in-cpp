@@ -1,0 +1,7 @@
+testProgression:
+  - ./progression/testProgression.cpp
+  - ./progression/ArithProgression.cpp
+  - ./progression/FibonacciProgression.cpp
+  - ./progression/GeomProgression.cpp
+  - ./progression/Progression.cpp
+functionTemplates: functionTemplates.cpp

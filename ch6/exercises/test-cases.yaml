@@ -1,0 +1,9 @@
+test-ShrinkingVector: test-ShrinkingVector.cpp
+
+randomlyPermuteArray: randomlyPermuteArray.cpp
+
+reverseArray: reverseArray.cpp
+
+rotateArray: rotateArray.cpp
+
+test-VectorStack: test-VectorStack.cpp

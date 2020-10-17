@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.10.0] - 2020-10-17
+### Changed
+- refact test script to use python script with yaml input
+
 ## [1.9.0] - 2020-10-17
 ### Added
 - ShrinkingVector and test

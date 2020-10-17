@@ -1,0 +1,7 @@
+test-NodeList: list/test-NodeList.cpp
+
+exampleOfTheUseOfTheSTLVectorAndIterators: ./list/exampleOfTheUseOfTheSTLVectorAndIterators.cpp
+
+test-ArrayVector: ./vector/test-ArrayVector.cpp
+
+test-NodeSequence: ./sequence/test-NodeSequence.cpp

@@ -1,0 +1,8 @@
+GameEntry:
+  - test-GameEntry.cpp
+  - GameEntry.cpp
+
+Scores:
+  - test-Scores.cpp
+  - Scores.cpp
+  - GameEntry.cpp
