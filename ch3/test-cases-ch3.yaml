@@ -1,0 +1,4 @@
+test-insertionSort:
+  - test-insertionSort.cpp
+  - insertionSort.cpp
+ticTacTie: ticTacTie.cpp

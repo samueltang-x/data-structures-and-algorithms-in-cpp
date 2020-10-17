@@ -1,0 +1,7 @@
+testCreditCard:
+  - testCreditCard.cpp
+  - CreditCard.cpp
+
+r17-sum-below-n_recursion: ./exercises/r17-sum-below-n_recursion.cpp
+
+r17-sum-below-n_loop: ./exercises/r17-sum-below-n_loop.cpp
