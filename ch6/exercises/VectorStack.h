@@ -1,3 +1,6 @@
+#ifndef GUARD_ARRAYVECTOR_H
+#define GUARD_ARRAYVECTOR_H
+
 #include <iostream>
 #include <vector>
 
@@ -58,3 +61,5 @@ std::ostream& operator<<(std::ostream& os, const VectorStack<E>& s) {
   for (it i = s.v.begin(); i != s.v.end(); ++i) std::cout << (i == s.v.begin() ? "" : ",") << *i;
   return std::cout;
 }
+
+#endif

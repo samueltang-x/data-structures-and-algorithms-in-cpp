@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.9.0] - 2020-10-17
+### Added
+- ShrinkingVector and test
+- add capacity() interface for ArrayVector
+### Changed
+- Move ArrayVector private members E* a and int cap to protected
+### Fixed
+- Fix bug constructor(int c) when c > 0
+
 ## [1.8.0] - 2020-10-11
 ### ch6 exercises
 - Add VectorStack: R-6.5 Give an adapter class to support the Stack interface using the functions of the vector ADT

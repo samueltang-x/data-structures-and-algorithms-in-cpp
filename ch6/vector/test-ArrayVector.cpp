@@ -48,6 +48,20 @@ void testArrayVector() {
   v3.erase(0);
   cout << "v3: " << v3 << endl;
   cout << "v: " << v << endl;
+
+  ArrayVector<string> v4(2);
+  v4.insert(0, "blue");
+  v4.insert(1, "sky");
+  cout << "v4: " << v4 << endl;
+  v4.erase(1);
+  cout << "v4: " << v4 << endl;
+
+  ArrayVector<int> v5(2);
+  v5.insert(0, 1);
+  v5.insert(1, 2);
+  cout << "v5: " << v5 << endl;
+  v5.erase(1);
+  cout << "v5: " << v5 << endl;
 }
 
 int main() {
