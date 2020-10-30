@@ -15,7 +15,7 @@ template <typename E>
 class ArrayVector {
   public:
     ArrayVector(int c = 0); // default constructor
-    ~ArrayVector(); // destructer
+    ~ArrayVector();         // destructor
     ArrayVector(const ArrayVector& v);  // copy constructor
     ArrayVector& operator=(const ArrayVector& v); // assignment operator
 
