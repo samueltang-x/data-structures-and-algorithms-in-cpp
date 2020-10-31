@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.12.0] - 2020-10-31
+### Added
+- EulerTour: a generic Euler tour of a binary tree.
+- EvaluateExpressionTour: to evaluate an arithmetic expression by inherit EulerTour.
+- PrintExpressionTour: to print an arithmetic expression by inherit EulerTour.
+
 ## [1.11.0] - 2020-10-30
 ### Added
 - LinkedBinaryTree
