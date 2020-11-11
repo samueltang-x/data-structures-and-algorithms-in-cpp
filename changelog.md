@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.13.0] - 2020-11-11
+### Added
+- ListPriorityQueue
+
 ## [1.12.0] - 2020-10-31
 ### Added
 - EulerTour: a generic Euler tour of a binary tree.
